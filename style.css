@@ -129,24 +129,20 @@ main {
 
 /* ========== Hero Section ========== */
 .hero {
-  min-height: 100vh;
+  background: linear-gradient(to right, #e0f2fe, #f0f9ff);
   padding: 4rem 1rem;
   text-align: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
 }
 
 .hero h2 {
-  font-size: clamp(2rem, 5vw, 2.5rem);
+  font-size: 2.5rem;
   color: #0f172a;
   margin-bottom: 1rem;
   font-weight: 700;
 }
 
 .hero p {
-  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  font-size: 1.2rem;
   color: #475569;
   max-width: 700px;
   margin: auto;
@@ -154,24 +150,20 @@ main {
 
 /* ========== Scan Section ========== */
 .scan-section {
-  flex: 1;
   padding: 3rem 1rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
-/* ========== Scan Box ========== */
 .box {
   background: linear-gradient(145deg, #ffffff, #f1f5f9);
   border-radius: 18px;
   padding: 2.5rem 2rem;
   max-width: 520px;
-  width: 100%;
+  margin: auto;
   text-align: center;
   box-shadow: 0 12px 25px rgba(0, 0, 0, 0.08), 0 4px 8px rgba(0, 0, 0, 0.05);
   border: 1px solid #e2e8f0;
   transition: all 0.3s ease;
+  position: relative;
 }
 
 .box:hover {
@@ -233,16 +225,23 @@ main {
   background-size: 600% 600%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  text-shadow: 1px 1px 0 #000,
-               2px 2px 4px rgba(255, 165, 0, 0.6),
-               0 0 10px rgba(255, 140, 0, 0.8);
+  text-shadow:
+    1px 1px 0 #000,
+    2px 2px 4px rgba(255, 165, 0, 0.6),
+    0 0 10px rgba(255, 140, 0, 0.8);
   animation: glowFlow 6s ease-in-out infinite;
 }
 
 @keyframes glowFlow {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 /* ========== Scan Button ========== */
