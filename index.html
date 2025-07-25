@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="km">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>កម្មវិធីស្កេនវីរុស ALSIN</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" type="image/x-icon" href="logo.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Khmer+Freehand&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+
+<!-- ក្បាលទំព័រ -->
+<header class="header">
+  <div class="container">
+    <div class="logo-wrapper">
+      <img src="logo.jpg" alt="រូបសញ្ញាកម្មវិធីស្កេនវីរុស ALSIN" class="logo-image" />
+      <span class="logo-text">កម្មវិធីស្កេនវីរុស ALSIN</span>
+    </div>
+    <nav class="nav">
+      <a href="#how-it-works">របៀបប្រើប្រាស់</a>
+      <a href="#scan">ស្កេនឯកសារ</a>
+      <a href="https://t.me/phoeurnsokpheng855" target="_blank">ទំនាក់ទំនង</a>
+    </nav>
+  </div>
+</header>
+
+<!-- សេចក្ដីណែនាំ -->
+<section id="how-it-works" class="hero">
+  <div class="container">
+    <h2>ស្កេនឯកសារយ៉ាងលឿន ឯកជន និងមានសុវត្ថិភាព</h2>
+    <p>ផ្ទុកឯកសារណាមួយ — ឯកសារ រូបភាព ឬបណ្ណសារ — ពួកយើងនឹងពិនិត្យវាដើម្បីរកវីរុស។ យើងគោរពភាពឯកជនរបស់អ្នក។ ឯកសារមិនត្រូវបានរក្សាទុកឡើយ។</p>
+  </div>
+</section>
+
+<!-- ប្រអប់ស្កេន -->
+<main id="scan" class="scan-section">
+  <div class="container box">
+    <h3>🛡️ ស្កេនឯកសារ</h3>
+    <p>ជ្រើសឯកសារដើម្បីពិនិត្យមើលវីរុស ឬការគំរាមកំហែង</p>
+
+    <!-- តំបន់ទម្លាក់ឯកសារ -->
+    <div id="drop-zone" class="drop-zone">
+      <p>📂 អូសទម្លាក់ឯកសារនៅទីនេះ ឬចុចដើម្បីផ្ទុកឡើង</p>
+      <input type="file" id="file" class="file-input" hidden />
+    </div>
+
+    <!-- ✅ បង្ហាញឈ្មោះឯកសារ -->
+    <p id="file-name" class="file-name"></p>
+
+    <button onclick="uploadFile()" class="scan-button">ស្កេនឯកសារ</button>
+
+    <div id="spinner" class="spinner" style="display: none;">🔄 កំពុងស្កេន...</div>
+    <div id="result" class="result-area"></div>
+
+    <p class="note">ឯកសាររបស់អ្នកត្រូវបានស្កេនភ្លាមៗ ហើយមិនត្រូវបានរក្សាទុកទេ។</p>
+  </div>
+</main>
+
+<!-- សារ-popup -->
+<div id="popup" class="popup-message hidden"></div>
+
+<!-- ផ្នែកបាតទំព័រ -->
+<footer id="footer" class="footer">
+  <div class="container footer-flex">
+    <div class="footer-text">
+      <p>© 2025 កម្មវិធីស្កេនវីរុស ALSIN។ រក្សាសិទ្ធិគ្រប់យ៉ាង។</p>
+      <p>បង្កើតដោយ 💙 ដើម្បីធានាការរុករកអ៊ីនធឺណិតប្រកបដោយសុវត្ថិភាព។</p>
+    </div>
+    <div class="footer-icons">
+      <a href="https://t.me/phoeurnsokpheng855" target="_blank" aria-label="Telegram">
+        <i class="fab fa-telegram fa-lg"></i>
+      </a>
+      <a href="https://web.facebook.com/phoeurn.sokpheng.2025" target="_blank" aria-label="Facebook">
+        <i class="fab fa-facebook fa-lg"></i>
+      </a>
+      <a href="https://www.youtube.com/@sin-music-w3i" target="_blank" aria-label="YouTube">
+        <i class="fab fa-youtube fa-lg"></i>
+      </a>
+    </div>
+  </div>
+</footer>
+
+
+
+<script>
+  const dropZone = document.getElementById("drop-zone");
+  const fileInput = document.getElementById("file");
+  const fileNameDisplay = document.getElementById("file-name");
+
+  dropZone.addEventListener("click", () => fileInput.click());
+
+  dropZone.addEventListener("dragover", (e) => {
+    e.preventDefault();
+    dropZone.classList.add("dragover");
+  });
+
+  dropZone.addEventListener("dragleave", () => {
+    dropZone.classList.remove("dragover");
+  });
+
+  dropZone.addEventListener("drop", (e) => {
+    e.preventDefault();
+    dropZone.classList.remove("dragover");
+    if (e.dataTransfer.files.length > 0) {
+      fileInput.files = e.dataTransfer.files;
+      updateFileNameDisplay(); // ✅ បង្ហាញឈ្មោះឯកសារ
+    }
+  });
+
+  fileInput.addEventListener("change", updateFileNameDisplay); // ✅ បង្ហាញឈ្មោះឯកសារ
+
+  function updateFileNameDisplay() {
+    if (fileInput.files.length > 0) {
+      fileNameDisplay.textContent = `ឯកសារដែលបានជ្រើស៖ ${fileInput.files[0].name}`;
+    } else {
+      fileNameDisplay.textContent = '';
+    }
+  }
+
+  function showPopup(message, type = "info") {
+    const popup = document.getElementById("popup");
+    popup.textContent = message;
+    popup.className = `popup-message show ${type}`;
+    setTimeout(() => {
+      popup.classList.remove("show");
+    }, 4000);
+  }
+
+  async function uploadFile() {
+    const resultBox = document.querySelector('#result');
+    const spinner = document.querySelector('#spinner');
+
+    if (!fileInput.files.length) {
+      showPopup("សូមជ្រើសឯកសារដើម្បីស្កេន។", "warning");
+      return;
+    }
+
+    const formData = new FormData();
+    formData.append('file', fileInput.files[0]);
+
+    resultBox.innerHTML = '';
+    spinner.style.display = 'block';
+
+    try {
+      await new Promise(resolve => setTimeout(resolve, 1500)); // ការពន្យារពេលគំរូ
+      const result = Math.random() > 0.5
+        ? { status: 'clean' }
+        : { status: 'infected', virus: 'ឯកសារមិនមានសុវត្ថិភាព' };
+
+      spinner.style.display = 'none';
+
+      if (result.status === 'clean') {
+        showPopup("✅ គ្មានវីរុស៖ ឯកសាររបស់អ្នកមានសុវត្ថិភាព។", "success");
+        resultBox.innerHTML = `<div class="result clean">✅ ឯកសារស្អាត!</div>`;
+      } else if (result.status === 'infected') {
+        showPopup(`⚠️ រកឃើញវីរុស៖ ${result.virus}`, "error");
+        resultBox.innerHTML = `<div class="result infected">⚠️ មានវីរុស៖ ${result.virus}</div>`;
+      } else {
+        resultBox.innerHTML = `<div class="result error">លទ្ធផលមិនច្បាស់លាស់។</div>`;
+        showPopup("លទ្ធផលមិនគួរឱ្យរំពឹងទុក។", "error");
+      }
+
+    } catch (error) {
+      spinner.style.display = 'none';
+      resultBox.innerHTML = `<div class="result error">កើតបញ្ហាចំពោះការស្កេនឯកសារ។</div>`;
+      showPopup("មានបញ្ហាក្នុងការស្កេនឯកសារ។", "error");
+    }
+  }
+</script>
+
+</body>
+</html>

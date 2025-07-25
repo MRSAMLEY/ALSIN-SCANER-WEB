@@ -1,0 +1,322 @@
+/* ========== Font Face ========== */
+@font-face {
+  font-family: 'AKbalthomChamnapChhun';
+  src: url('KhmerOSbokor.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* ========== Global ========== */
+body {
+  margin: 0;
+  font-family: 'AKbalthomChamnapChhun', sans-serif;
+  background: linear-gradient(to right, #e0f2fe, #f0f9ff);
+  color: #1f2937;
+  line-height: 1.6;
+}
+
+a,
+h1, h2, h3, h4, h5, h6,
+p, span, div, button,
+input, label, textarea {
+  font-family: 'AKbalthomChamnapChhun', sans-serif;
+}
+
+/* ========== Header ========== */
+.header {
+  background: linear-gradient(to right, #ff2d2d, #1601ff);
+  padding: 1rem 0;
+  border-bottom: 3px solid #000000;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.header .container {
+  max-width: 1100px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1.2rem;
+}
+
+.logo-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.logo-image {
+  height: 42px;
+  width: auto;
+  display: block;
+  border-radius: 6px;
+  animation: glowLoop 2s infinite alternate ease-in-out;
+}
+
+@keyframes glowLoop {
+  0% {
+    box-shadow:
+      0 0 8px rgba(255, 204, 0, 0.5),
+      0 0 16px rgba(255, 153, 0, 0.3),
+      0 0 32px rgba(255, 102, 0, 0.2);
+  }
+  100% {
+    box-shadow:
+      0 0 12px rgba(255, 230, 0, 0.8),
+      0 0 24px rgba(255, 174, 0, 0.6),
+      0 0 48px rgba(255, 140, 0, 0.4);
+  }
+}
+
+.logo-text {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 0.5px;
+}
+
+.nav a {
+  margin-left: 1.5rem;
+  font-weight: 500;
+  color: #cbd5e1;
+}
+
+.nav a:hover {
+  color: #38bdf8;
+}
+
+/* ========== Hero Section ========== */
+.hero {
+  background: linear-gradient(to right, #e0f2fe, #f0f9ff);
+  padding: 4rem 1rem;
+  text-align: center;
+}
+
+.hero h2 {
+  font-size: 2.5rem;
+  color: #0f172a;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  color: #475569;
+  max-width: 700px;
+  margin: auto;
+}
+
+/* ========== Scan Section ========== */
+.scan-section {
+  padding: 3rem 1rem;
+}
+
+.box {
+  background: linear-gradient(145deg, #ffffff, #f1f5f9);
+  border-radius: 18px;
+  padding: 2.5rem 2rem;
+  max-width: 520px;
+  margin: auto;
+  text-align: center;
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.08), 0 4px 8px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e2e8f0;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.box:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 35px rgba(0, 0, 0, 0.12);
+}
+
+.box h3 {
+  font-size: 1.75rem;
+  margin-bottom: 0.5rem;
+  color: #1e293b;
+}
+
+.box p {
+  margin-bottom: 1rem;
+  color: #64748b;
+}
+
+/* ========== File Input ========== */
+.file-input {
+  margin: 1rem 0;
+  padding: 0.6rem;
+  width: 100%;
+  font-size: 1rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  background-color: #f8fafc;
+  transition: border-color 0.2s ease;
+  display: none;
+}
+
+/* ========== Drag and Drop Zone ========== */
+.drop-zone {
+  border: 2px dashed #94a3b8;
+  padding: 2rem;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 12px;
+  background-color: #f8fafc;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+  margin-bottom: 1rem;
+  color: #475569;
+  font-size: 1rem;
+}
+
+.drop-zone.dragover {
+  background-color: #e0f2fe;
+  border-color: #3b82f6;
+  color: #0f172a;
+}
+
+/* ========== File Name Display ========== */
+.file-name {
+  margin-top: 10px;
+  font-size: 1rem;
+  font-weight: bold;
+  font-style: italic;
+  background: linear-gradient(270deg, #ffcc00, #ff9900, #ff6600, #ffcc00);
+  background-size: 600% 600%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow:
+    1px 1px 0 #000,
+    2px 2px 4px rgba(255, 165, 0, 0.6),
+    0 0 10px rgba(255, 140, 0, 0.8);
+  animation: glowFlow 6s ease-in-out infinite;
+}
+
+@keyframes glowFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* ========== Scan Button ========== */
+.scan-button {
+  background: #0ea5e9;
+  color: #ffffff;
+  padding: 0.7rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: background 0.3s ease;
+  margin-top: 0.5rem;
+}
+
+.scan-button:hover {
+  background: #0284c7;
+}
+
+/* ========== Spinner ========== */
+.spinner {
+  display: none;
+  margin-top: 1rem;
+  font-size: 0.95rem;
+  color: #64748b;
+}
+
+/* ========== Result Area ========== */
+.result-area {
+  margin-top: 1rem;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.result.clean {
+  color: #16a34a;
+}
+
+.result.infected {
+  color: #dc2626;
+}
+
+.result.error {
+  color: #f59e0b;
+}
+
+/* ========== Note ========== */
+.note {
+  font-size: 0.75rem;
+  color: #94a3b8;
+  margin-top: 1.5rem;
+}
+
+/* ========== Popup Message ========== */
+.popup-message {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%) translateY(100%);
+  background-color: #444;
+  color: #fff;
+  padding: 14px 24px;
+  border-radius: 8px;
+  font-weight: 500;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.4s ease;
+  z-index: 9999;
+}
+
+.popup-message.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+  pointer-events: auto;
+}
+
+.popup-message.success {
+  background-color: #2ecc71;
+}
+
+.popup-message.error {
+  background-color: #e74c3c;
+}
+
+.popup-message.warning {
+  background-color: #f39c12;
+}
+
+/* ========== Footer ========== */
+.footer {
+  background: linear-gradient(to right, #ff2d2d, #1601ff);
+  border-top: 3px solid #000000;
+  padding: 1.5rem 0;
+  margin-top: 4rem;
+  color: #cbd5e1;
+  font-size: 0.9rem;
+}
+
+.footer-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  max-width: 1100px;
+  margin: auto;
+  padding: 0 1.2rem;
+}
+
+.footer-icons a {
+  color: #ffffff;
+  margin-left: 1rem;
+  transition: color 0.3s ease;
+  font-size: 1.4rem;
+}
+
+.footer-icons a:hover {
+  color: #ffcc00;
+}
+
