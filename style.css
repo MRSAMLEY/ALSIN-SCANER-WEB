@@ -130,40 +130,40 @@ main {
 /* ========== Hero Section ========== */
 .hero {
   background: linear-gradient(to right, #e0f2fe, #f0f9ff);
-  padding: 4rem 1rem;
+  padding: 6rem 1rem 3rem;
   text-align: center;
 }
 
 .hero h2 {
-  font-size: 2.5rem;
+  font-size: clamp(2rem, 5vw, 2.5rem);
   color: #0f172a;
   margin-bottom: 1rem;
   font-weight: 700;
 }
 
 .hero p {
-  font-size: 1.2rem;
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
   color: #475569;
   max-width: 700px;
-  margin: auto;
+  margin: 0 auto;
 }
 
 /* ========== Scan Section ========== */
 .scan-section {
-  padding: 3rem 1rem;
+  padding: 4rem 1rem;
 }
 
+/* ========== Box ========== */
 .box {
   background: linear-gradient(145deg, #ffffff, #f1f5f9);
   border-radius: 18px;
-  padding: 2.5rem 2rem;
+  padding: 3rem 2rem;
   max-width: 520px;
   margin: auto;
   text-align: center;
   box-shadow: 0 12px 25px rgba(0, 0, 0, 0.08), 0 4px 8px rgba(0, 0, 0, 0.05);
   border: 1px solid #e2e8f0;
   transition: all 0.3s ease;
-  position: relative;
 }
 
 .box:hover {
@@ -233,15 +233,9 @@ main {
 }
 
 @keyframes glowFlow {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 /* ========== Scan Button ========== */
@@ -336,7 +330,7 @@ main {
   background: linear-gradient(to right, #ff2d2d, #1601ff);
   border-top: 3px solid #000000;
   padding: 1.5rem 0;
-  margin-top: 4rem;
+  margin-top: 6rem;
   color: #cbd5e1;
   font-size: 0.9rem;
 }
