@@ -282,3 +282,34 @@ main {
 }
 
 .popup-message
+
+/* ========== Footer ========== */
+.footer {
+  background: linear-gradient(to right, #ff2d2d, #1601ff);
+  border-top: 3px solid #000000;
+  padding: 1.5rem 0;
+  margin-top: 4rem;
+  color: #cbd5e1;
+  font-size: 0.9rem;
+}
+
+.footer-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  max-width: 1100px;
+  margin: auto;
+  padding: 0 1.2rem;
+}
+
+.footer-icons a {
+  color: #ffffff;
+  margin-left: 1rem;
+  transition: color 0.3s ease;
+  font-size: 1.4rem;
+}
+
+.footer-icons a:hover {
+  color: #ffcc00;
+}
