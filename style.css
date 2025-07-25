@@ -281,7 +281,23 @@ main {
   z-index: 9999;
 }
 
-.popup-message
+.popup-message.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+  pointer-events: auto;
+}
+
+.popup-message.success {
+  background-color: #2ecc71;
+}
+
+.popup-message.error {
+  background-color: #e74c3c;
+}
+
+.popup-message.warning {
+  background-color: #f39c12;
+}
 
 /* ========== Footer ========== */
 .footer {
@@ -313,3 +329,4 @@ main {
 .footer-icons a:hover {
   color: #ffcc00;
 }
+
